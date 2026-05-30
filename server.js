@@ -3,7 +3,6 @@ const fastify = require('fastify')({ logger: true });
 const cors = require('@fastify/cors');
 const { connectDB, getDB } = require('./config/db');
 const healthRoutes = require('./routes/health');
-const userRoutes = require('./routes/users');
 
 const PORT = process.env.PORT || 5000;
 
@@ -12,7 +11,6 @@ fastify.register(cors);
 
 // Register routes
 fastify.register(healthRoutes, { prefix: '/api' });
-fastify.register(userRoutes, { prefix: '/api' });
 
 // Start server
 const start = async () => {
